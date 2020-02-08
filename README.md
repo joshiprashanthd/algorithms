@@ -1,2 +1,2 @@
-# algorithms
-Implementation of Different Algorithms
+# Algorithms 
+Implementation of Different Algorithms related to Graphs, Heaps, Backtracking, Divide and Conquer
