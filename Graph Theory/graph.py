@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, List
 
 class Graph(object):
     def __init__(self) -> None:
@@ -6,22 +6,26 @@ class Graph(object):
         self.V: int = 0
         self.E: int = 0
     
-    def add_edge_from(self, u: int, v: int, w: int = 0) -> None:
-        self.graph.setdefault(u, [])
-        self.graph[u].append((v, w))
-        self._updateInfo()
-        
-    def add_edge(self, u: int, v: int, w: int = 0) -> None:
+    def add_edge_from(self, u: int, v: int) -> None:
         self.graph.setdefault(u, [])
         self.graph.setdefault(v, [])
+        
+        self.graph[u].append(v)
+        self._updateInfo(u, v)
+        
+    def add_edge(self, u: int, v: int) -> None:
+        self.graph.setdefault(u, [])
+        self.graph.setdefault(v, [])
+        
         self.graph[u].append(v)
         self.graph[v].append(u)
-        self._updateInfo()
         
-    def nodes(self) -> set:
+        self._updateInfo(u, v)
+        
+    def nodes(self) -> list:
         return list(self.graph.keys())
         
-    def _updateInfo(self):
+    def _updateInfo(self, u: int, v: int):
         self.V = max(list(self.graph.keys()))
         self.E = sum([len(adjacent_nodes) for adjacent_nodes in self.graph.values()])
         
