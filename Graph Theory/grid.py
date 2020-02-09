@@ -3,11 +3,11 @@ from typing import List, Generic, TypeVar
 T = TypeVar('T')
 
 class Grid(Generic[T]):
-    def __init__(self, rows: int, cols: int, char: str) -> None:
+    def __init__(self, rows: int, cols: int, char: T) -> None:
         self.rows = rows
         self.cols = cols
         self.char = char
-        self.grid: List[List[T]] = None
+        self.grid: List[List[T]]
         self.__init_grid()
         
     def __init_grid(self):
