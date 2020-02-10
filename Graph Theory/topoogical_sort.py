@@ -8,7 +8,7 @@ class TopologicalSort:
         self.visited: Dict[int, bool] = dict([(key, False) for key in self.graph.nodes()])
         
         
-    def run(self):
+    def run(self) -> list:
         
         for node in self.graph.nodes():
             if not self.visited[node]:
@@ -17,7 +17,7 @@ class TopologicalSort:
                 for node in visited_nodes:
                     self.top_rev_order.append(node)
         # self.top_rev_order.reverse()
-        print("TOPOLOGICAL ORDER: ", self.top_rev_order)
+        return self.top_rev_order
     
     def __dfs(self, at: int, visited_nodes: list):
         self.visited[at] = True
@@ -37,5 +37,6 @@ g.add_edge_from(2, 5)
 g.add_edge_from(2, 6)
 
 ts = TopologicalSort(g)
-ts.run()
+order = ts.run()
 print(g)
+print(order)
