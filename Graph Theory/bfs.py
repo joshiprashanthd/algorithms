@@ -1,7 +1,5 @@
 from graph import Graph
 from typing import Dict, List
-from queue import SimpleQueue
-
 
 class BFS:
     def __init__(self, graph: Graph):
@@ -24,13 +22,13 @@ class BFS:
         while len(self.queue) != 0:
             current_node = self.queue.pop(0)
 
-            neighbors = self.graph[current_node]
+            edges = self.graph[current_node]
 
-            for neighbor in neighbors:
-                if not self.visited[neighbor]:
-                    self.visited[neighbor] = True
-                    self.queue.append(neighbor)
-                    self.prev[neighbor] = current_node
+            for edge in edges:
+                if not self.visited[edge.to]:
+                    self.visited[edge.to] = True
+                    self.queue.append(edge.to)
+                    self.prev[edge.to] = current_node
                                     
     def __reconstructedPath(self, start_node: int, end_node: int) -> list:
         path = []
@@ -46,7 +44,7 @@ class BFS:
         return []
 
 
-g = Graph()
+g = Graph[int]()
 g.add_edge(1, 2)
 g.add_edge(1, 6)
 g.add_edge(2, 4)
@@ -60,4 +58,5 @@ g.add_edge(5, 8)
 
 bfs = BFS(g)
 print(g)
-print(bfs.run(1, 8))
+shortestPath = bfs.run(1, 8)
+print("SHORETEST PATH: ",shortestPath)

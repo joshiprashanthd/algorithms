@@ -14,11 +14,11 @@ class DFS:
         if self.visited[at]: return
         self.visited[at] = True
 
-        neighbors = self.graph[at]
-        for neighbor in neighbors:
-            self.run_util(neighbor)
+        edges = self.graph[at]
+        for edge in edges:
+            self.run_util(edge.to)
     
-g = Graph()
+g = Graph[int]()
 g.add_edge(5, 2)
 g.add_edge(4, 8)
 g.add_edge(2, 1)

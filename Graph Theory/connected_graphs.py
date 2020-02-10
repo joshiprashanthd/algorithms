@@ -22,13 +22,13 @@ class ConnectedGraph():
         self.visited[at] = True
         
         self.component[at] = self.count
-        neighbors = self.graph[at]
+        edges = self.graph[at]
         
-        for neighbor in neighbors:
-            if not self.visited[neighbor]:
-                self.__dfs(neighbor)
+        for edge in edges:
+            if not self.visited[edge.to]:
+                self.__dfs(edge.to)
             
-g = Graph()
+g = Graph[int]()
 g.add_edge(0, 1)
 g.add_edge(1, 2)
 g.add_edge(2, 0)

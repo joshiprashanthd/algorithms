@@ -23,13 +23,13 @@ class TopologicalSort:
         self.visited[at] = True
         visited_nodes.append(at)
         
-        neighbors = self.graph[at]
+        edges = self.graph[at]
         
-        for neighbor in neighbors:
-            if not self.visited[neighbor]:
-                self.__dfs(neighbor, visited_nodes)
+        for edge in edges:
+            if not self.visited[edge.to]:
+                self.__dfs(edge.to, visited_nodes)
             
-g = Graph()
+g = Graph[int]()
 g.add_edge_from(1, 3)
 g.add_edge_from(1, 2)
 g.add_edge_from(3, 5)
@@ -38,3 +38,4 @@ g.add_edge_from(2, 6)
 
 ts = TopologicalSort(g)
 ts.run()
+print(g)
