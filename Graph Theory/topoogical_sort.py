@@ -1,4 +1,4 @@
-from graph import Graph
+from ds.graph import Graph
 from typing import List, Dict
 
 class TopologicalSort:

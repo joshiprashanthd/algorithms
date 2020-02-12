@@ -1,4 +1,4 @@
-from graph import Graph
+from ds.graph import Graph
 from typing import Dict, List
 
 class BFS:

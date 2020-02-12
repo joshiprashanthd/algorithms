@@ -1,10 +1,10 @@
 """
-A useful application of Topological Sort is to find shortest path to all the having minimum weight
+A useful application of Topological Sort is to find shortest path the having minimum weight
 to all the other nodes in the graph.
 """
 
 import math
-from graph import Graph
+from ds.graph import Graph
 from typing import List, Dict
 from topoogical_sort import TopologicalSort
 

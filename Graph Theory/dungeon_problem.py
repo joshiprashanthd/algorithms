@@ -7,7 +7,7 @@
 # Is an escape possible? If yes, how long will it take?
 
 from typing import List, Dict, Tuple
-from grid import Grid
+from ds.grid import Grid
 
 class DungeonSolver:
     def __init__(self, grid: Grid):
