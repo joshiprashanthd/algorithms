@@ -10,16 +10,17 @@ class Dijkstra:
         self.graph = graph
         self.visited: Dict[str, bool] = dict([(key, False) for key in self.graph.nodes()])
         self.dist: Dict[str, float] = dict([(key, math.inf) for key in self.graph.nodes()])
-        self.pq = PriorityQueue(maxsize=len(self.graph.nodes()))
+        self.pq = PriorityQueue[Tuple[int, int]](maxsize=len(self.graph.nodes()), sort_index=1)
     
     def run(self, start_node: str) -> None:
         self.pq.insert((start_node, 0))
-        self.dist[0] = 0
+        self.dist[start_node] = 0
+        
         while not self.pq.is_empty():
-            node, min_value = self.pq.pop()
-            
-            edges = self.graph[node]
-            
+            node, value = self.pq.pop()
+            self.visited[node] = True
+
+            edges = self.graph[node]            
             for edge in edges:
                 if self.visited[edge.to]: continue
                 new_dist = self.dist[node] + edge.weight
