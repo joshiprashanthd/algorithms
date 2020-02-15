@@ -21,6 +21,21 @@ class PriorityQueue(Generic[T]):
         self.sort_index = sort_index
         self.pq: List[T] = []
         
+    def contains(self, key: str) -> bool:
+        print("self.pq: ",self.pq)
+        return any([item[0] == key for item in self.pq])
+    
+    def update_key(self, key: T, new_value: float) -> None:
+        assert self.contains(key), Exception("Key is not present in priority queue")
+        key_index = 0
+        for i in range(len(self.pq)):
+            if self.pq[i][0] == key:
+                key_index = i
+                break
+        self.pq.pop(key_index)
+        self.insert((key, new_value))
+                
+    
     def insert(self, element: T) -> None:
         assert self.size > len(self.pq), Exception("Queue Overflow")
         self.pq.append(element)
