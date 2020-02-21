@@ -20,26 +20,28 @@ class Graph(Generic[T], object):
         self.graph: Dict[T, List[Edge[T]]] = dict()
         self.V: int = 0
         self.E: int = 0
-    
-    def add_edge_from(self, u: T, v: T, w: float = 0) -> None:
-        """
-        Add a directed edge U -> V in the graph
-        """
+        
+    def add_edge(self, u: T, v: T, w: float = 0, directed: bool = False) -> None:
         self.graph.setdefault(u, [])
         self.graph.setdefault(v, [])
         
         self.graph[u].append(Edge[T](u, v, w))
+        if not directed:
+            self.graph[v].append(Edge[T](v, u, w))
         
         self._updateInfo(u, v)
         
-    def add_edge(self, u: T, v: T, w: float = 0) -> None:
-        self.graph.setdefault(u, [])
-        self.graph.setdefault(v, [])
-        
-        self.graph[u].append(Edge[T](u, v, w))
-        self.graph[v].append(Edge[T](v, u, w))
-        
-        self._updateInfo(u, v)
+    def remove_edge(self, u: T, v: T, directed: bool = False) -> None:
+        if u in self.nodes() and v in self.nodes():
+            for edge in self.graph[u]:
+                if edge.to == v:
+                    self.graph[u].remove(edge)
+                    break
+            if  not directed:
+                for edge in self.graph[v]:
+                    if edge.to == u:
+                        self.graph[v].remove(edge)
+                        break
         
     def nodes(self) -> list:
         return list(self.graph.keys())

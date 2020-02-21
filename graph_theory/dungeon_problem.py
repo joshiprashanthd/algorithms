@@ -51,11 +51,6 @@ class DungeonSolver:
                 reached_end = True
                 break
             
-            self.grid.grid[curr_row][curr_col] = 'O'
-            print(self.grid)
-            print("MOVE COUNTS: ", move_count)
-            print()
-            
             self.__explore_neighbors(curr_row, curr_col)
                 
             nodes_left_in_layer -= 1
@@ -65,9 +60,8 @@ class DungeonSolver:
                 self.nodes_in_next_layer = 0
                 move_count += 1
         if reached_end:
-            print(f"MOVE COUNTS: {move_count}")
-        else:
-            print(f"END CAN'T BE REACHED")
+            return move_count
+        return -1
 
         
     def __explore_neighbors(self, row: int, col: int):
@@ -88,34 +82,3 @@ class DungeonSolver:
             
             self.visited.grid[rr][cc] = True
             self.nodes_in_next_layer += 1
-            
-            
-        
-        
-    
-grid = Grid[str](5, 5, '.')
-obst = '#'
-clear = '.'
-end = 'E'
-
-grid.grid[1][0] = obst
-grid.grid[1][1] = obst
-grid.grid[1][3] = obst
-grid.grid[3][1] = obst
-grid.grid[3][2] = obst
-grid.grid[4][3] = obst
-grid.grid[4][2] = end
-
-ds = DungeonSolver(grid)
-
-print("GRID")
-print(grid)
-
-ds.run((0, 0))
-
-
-# \S\ \ \ \
-# \#\#\ \#\ 
-# \ \ \ \ \ 
-# \ \#\#\ \
-# \ \ \E\#\

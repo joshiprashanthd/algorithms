@@ -4,7 +4,7 @@ from typing import List, Dict, Tuple
 import math
 import queue
 
-class Dijkstra:
+class LazyDijkstra:
     
     def __init__(self, graph: Graph):
         self.graph = graph
@@ -39,17 +39,3 @@ class Dijkstra:
             path.append(curr)
             curr = self.prev[curr]
         return list(reversed(path))
-    
-    
-g = Graph[int]()
-g.add_edge_from(0, 1, 4)
-g.add_edge_from(0, 2, 1)
-g.add_edge_from(2, 1, 2)
-g.add_edge_from(1, 3, 1)
-g.add_edge_from(2, 3, 5)
-g.add_edge_from(3, 4, 3)
-
-print(g)
-
-dj = Dijkstra(g)
-print(dj.run(0, 4))

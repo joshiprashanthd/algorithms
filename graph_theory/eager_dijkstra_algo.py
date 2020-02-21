@@ -41,24 +41,3 @@ class EagerDijkstra:
             path.append(curr)
             curr = self.prev[curr]
         return list(reversed(path))
-    
-g = Graph[int]()
-g.add_edge_from(0, 1, 5)
-g.add_edge_from(0, 2, 1)
-g.add_edge_from(1, 2, 2)
-g.add_edge_from(1, 3, 3)
-g.add_edge_from(1, 4, 20)
-g.add_edge_from(2, 1, 3)
-g.add_edge_from(2, 4, 12)
-g.add_edge_from(3, 2, 3)
-g.add_edge_from(3, 4, 2)
-g.add_edge_from(3, 5, 6)
-g.add_edge_from(4, 5, 1)
-
-print(g)
-
-ed = EagerDijkstra(g)
-
-dist, path = ed.run(0, 5)
-print("DIST: ", dist)
-print("SHOETEST PATH: ", path)

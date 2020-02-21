@@ -28,17 +28,3 @@ class TopologicalSort:
                 self.__dfs(edge.to, visited_nodes)
                 
         visited_nodes.append(at)
-            
-g = Graph[int]()
-g.add_edge_from(1, 2)
-g.add_edge_from(1, 3)
-g.add_edge_from(2, 5)
-g.add_edge_from(2, 6)
-g.add_edge_from(3, 5)
-g.add_edge_from(7, 1)
-g.add_edge_from(7, 8)
-
-ts = TopologicalSort(g)
-order = ts.run()
-print(g)
-print(order)

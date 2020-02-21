@@ -22,7 +22,6 @@ class PriorityQueue(Generic[T]):
         self.pq: List[T] = []
         
     def contains(self, key: str) -> bool:
-        print("self.pq: ",self.pq)
         return any([item[0] == key for item in self.pq])
     
     def update_key(self, key: T, new_value: float) -> None:

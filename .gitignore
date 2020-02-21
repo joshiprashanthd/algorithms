@@ -1,4 +1,5 @@
 .mypy_cache
 .vscode
-Graph Theory\__pycache__
-Graph Theory\ds\__pycache__
+graph_theory\__pycache__
+graph_theory\ds\__pycache__
+graph_theory\__pycache__

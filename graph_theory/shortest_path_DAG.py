@@ -26,24 +26,3 @@ class DAGShortestPath:
                 self.distance[edge.to] = min([edge.weight + self.distance[edge.from_], self.distance[edge.to]])
                 
         return self.distance
-    
-    
-g = Graph[str]()
-
-g.add_edge_from('A', 'B', 3)
-g.add_edge_from('A', 'C', 6)
-g.add_edge_from('B', 'C', 4)
-g.add_edge_from('B', 'D', 4)
-g.add_edge_from('B', 'E', 11)
-g.add_edge_from('C', 'D', 8)
-g.add_edge_from('C', 'G', 11)
-g.add_edge_from('D', 'E', -4)
-g.add_edge_from('D', 'F', 5)
-g.add_edge_from('D', 'G', 2)
-g.add_edge_from('E', 'H', 9)
-g.add_edge_from('F', 'H', 1)
-g.add_edge_from('G', 'H', 2)
-
-sp = DAGShortestPath(g)
-print(g)
-print(sp.run('A'))
