@@ -9,8 +9,8 @@ graph_theory\ds\__pycache__
 .idea/vcs.xml
 .vscode/settings.json
 .idea/inspectionProfiles/profiles_settings.xml
-graph_theory/__pycache__/
+graph_theory/__pycache__
 .gitignore
-.mypy_cache/3.7/
+.mypy_cache/3.7
 .vscode/settings.json
 graph_theory/main.py
