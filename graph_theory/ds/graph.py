@@ -1,4 +1,4 @@
-from typing import Dict, List, Generic, TypeVar, Union, NoReturn, get_type_hints
+from typing import Dict, List, Generic, TypeVar, Union, NoReturn
 import math
 
 T = TypeVar('T', int, str, float)
@@ -54,7 +54,7 @@ class Graph(Generic[T], object):
     def edges(self) -> list:
         return list([edge for node in self.nodes() for edge in self.graph[node]])
 
-    def toMatrix(self) -> Matrix:
+    def to_matrix(self) -> Matrix:
         m: Matrix = [[math.inf for j in range(
             self.V)] for i in range(self.V)]
         for node in range(self.V):

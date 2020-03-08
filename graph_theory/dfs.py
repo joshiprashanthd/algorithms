@@ -1,4 +1,4 @@
-from ds.graph import Graph
+from graph_theory.ds.graph import Graph
 from typing import Dict, List
 
 class DFS:
@@ -21,4 +21,3 @@ class DFS:
         edges = self.graph[at]
         for edge in edges:
             self.run_util(edge.to)
-    

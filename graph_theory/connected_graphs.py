@@ -1,6 +1,5 @@
-from ds.graph import Graph
+from graph_theory.ds.graph import Graph
 from typing import Dict
-from dfs import DFS
 
 class ConnectedGraph():
     def __init__(self, graph: Graph):

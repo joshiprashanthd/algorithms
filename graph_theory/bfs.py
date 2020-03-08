@@ -1,5 +1,6 @@
-from ds.graph import Graph
+from graph_theory.ds.graph import Graph
 from typing import Dict, List
+
 
 class BFS:
     def __init__(self, graph: Graph):
@@ -29,18 +30,16 @@ class BFS:
                     self.visited[edge.to] = True
                     self.queue.append(edge.to)
                     self.prev[edge.to] = current_node
-                                    
+
     def __reconstructedPath(self, start_node: int, end_node: int) -> list:
         path = []
-        
+
         while end_node != -1:
             path.append(end_node)
             end_node = self.prev[end_node]
-        
+
         path = list(reversed(path))
-        
+
         if path[0] == start_node:
             return path
         return []
-
-
