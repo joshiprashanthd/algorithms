@@ -55,21 +55,17 @@ class Graph(Generic[T], object):
         return list([edge for node in self.nodes() for edge in self.graph[node]])
 
     def toMatrix(self) -> Matrix:
-        if isinstance(T.__class__, (int, float)):
-            m: Matrix = [[math.inf for j in range(
-                self.V)] for i in range(self.V)]
-            for node in range(self.V):
-                if node not in self.graph.keys():
-                    continue
-                for edge in self.graph[node]:
-                    m[node][edge.to] = edge.weight
-            return m
-        else:
-            raise TypeError(
-                "Can't make a adjacency matrix having NodeType str")
+        m: Matrix = [[math.inf for j in range(
+            self.V)] for i in range(self.V)]
+        for node in range(self.V):
+            if node not in self.graph.keys():
+                continue
+            for edge in self.graph[node]:
+                m[node][edge.to] = edge.weight
+        return m
 
     def __updateInfo(self, u: T, v: T):
-        self.V = max(self.graph.keys()) + 1
+        self.V = int(max(self.graph.keys()) + 1)
         self.E = sum([len(adjacent_nodes)
                       for adjacent_nodes in self.graph.values()])
 
