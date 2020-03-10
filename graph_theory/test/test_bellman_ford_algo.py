@@ -1,9 +1,8 @@
 import unittest
-import __init__
 import math
 
-from ds.graph import Graph
-from bellman_ford_algo import BellmanFordAlgorithm
+from graph_theory.ds.graph import Graph
+from graph_theory.bellman_ford_algo import BellmanFordAlgorithm
 
 class TestBellmanFordAlgorithm(unittest.TestCase):
     

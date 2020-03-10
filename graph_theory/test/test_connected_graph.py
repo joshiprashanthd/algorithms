@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.graph import Graph
-from connected_graphs import ConnectedGraph
+from graph_theory.ds.graph import Graph
+from graph_theory.connected_graphs import ConnectedGraph
 
 class TestConnectedGraph(unittest.TestCase):
     def setUp(self):

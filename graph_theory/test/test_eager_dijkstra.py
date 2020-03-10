@@ -1,8 +1,7 @@
 import unittest
-import __init__
+from graph_theory.ds.graph import Graph
+from graph_theory.eager_dijkstra_algo import EagerDijkstra
 
-from ds.graph import Graph
-from eager_dijkstra_algo import EagerDijkstra
 
 class TestEagerDijkstra(unittest.TestCase):
     def setUp(self):
@@ -18,12 +17,13 @@ class TestEagerDijkstra(unittest.TestCase):
         self.g1.add_edge(3, 4, 2, directed=True)
         self.g1.add_edge(3, 5, 6, directed=True)
         self.g1.add_edge(4, 5, 1, directed=True)
-        
+
     def test_1(self):
         ed = EagerDijkstra(self.g1)
         dist, path = ed.run(0, 5)
         self.assertEqual({0: 0, 1: 4, 2: 1, 3: 7, 4: 9, 5: 10}, dist)
         self.assertEqual([0, 2, 1, 3, 4, 5], path)
-        
+
+
 if __name__ == "__main__":
     unittest.main()

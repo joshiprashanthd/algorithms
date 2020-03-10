@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.graph import Graph
-from shortest_path_DAG import DAGShortestPath
+from graph_theory.ds.graph import Graph
+from graph_theory.shortest_path_DAG import DAGShortestPath
 
 class TestDAGShortestPath(unittest.TestCase):
     

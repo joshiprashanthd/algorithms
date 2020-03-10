@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.graph import Graph
-from topoogical_sort import TopologicalSort
+from graph_theory.ds.graph import Graph
+from graph_theory.topoogical_sort import TopologicalSort
 
 class TestTopologicalSort(unittest.TestCase):
     def setUp(self):

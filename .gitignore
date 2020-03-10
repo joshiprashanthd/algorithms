@@ -12,5 +12,4 @@ graph_theory\ds\__pycache__
 graph_theory/__pycache__
 .gitignore
 .mypy_cache/3.7
-.vscode/settings.json
 graph_theory/main.py

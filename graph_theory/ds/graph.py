@@ -65,7 +65,7 @@ class Graph(Generic[T], object):
         return m
 
     def __updateInfo(self, u: T, v: T):
-        self.V = int(max(self.graph.keys()) + 1)
+        # self.V = int(max(self.graph.keys()) + 1)
         self.E = sum([len(adjacent_nodes)
                       for adjacent_nodes in self.graph.values()])
 

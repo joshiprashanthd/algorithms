@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.graph import Graph
-from bfs import BFS
+from graph_theory.ds.graph import Graph
+from graph_theory.bfs import BFS
 
 class TestBFS(unittest.TestCase):
     

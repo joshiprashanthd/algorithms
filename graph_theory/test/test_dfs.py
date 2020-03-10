@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.graph import Graph
-from dfs import DFS
+from graph_theory.ds.graph import Graph
+from graph_theory.dfs import DFS
 
 class TestDFS(unittest.TestCase):
     

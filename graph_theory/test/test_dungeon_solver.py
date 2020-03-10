@@ -1,8 +1,7 @@
 import unittest
-import __init__
 
-from ds.grid import Grid
-from dungeon_problem import DungeonSolver
+from graph_theory.ds.grid import Grid
+from graph_theory.dungeon_problem import DungeonSolver
 
 class TestDungeonSolver(unittest.TestCase):
     def setUp(self):
