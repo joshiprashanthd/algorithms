@@ -22,15 +22,17 @@ class FloydWarshallAlgorithm:
     def run(self, start_node: int, end_node: int) -> Optional[Tuple[List[int], float]]:
         m = self.graph.to_matrix()
         self.__setup(m)
+        self.__compute_dp_table()
+        self.__propagate_negative_cycle()
+        return self.__reconstruct_path(start_node, end_node)
 
+    def __compute_dp_table(self):
         for k in range(1, self.n):
             for i in range(self.n):
                 for j in range(self.n):
                     if self.dp[i][k] + self.dp[k][j] < self.dp[i][j]:
                         self.next[i][j] = self.next[i][k]
                         self.dp[i][j] = self.dp[i][k] + self.dp[k][j]
-        self.__propagate_negative_cycle()
-        return self.__reconstruct_path(start_node, end_node)
 
     def __propagate_negative_cycle(self) -> None:
         for k in range(1, self.n):
@@ -54,3 +56,22 @@ class FloydWarshallAlgorithm:
             at = self.next[at][end]
         path.append(end)
         return path, cost
+
+    def gen_path(self, start: int, end: int):
+        m = self.graph.to_matrix()
+        self.__setup(m)
+        self.__compute_dp_table()
+        self.__propagate_negative_cycle()
+        print("dp: ", self.dp)
+        print("start: ", start)
+        print("end: ", end)
+        if self.dp[start][end] == math.inf: yield None
+
+        at = start
+
+        while True:
+            if at == -1:
+                yield None
+            else:
+                yield at
+            at = self.next[at][end]
