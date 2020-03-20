@@ -11,6 +11,11 @@ class Edge(Generic[T]):
         self.to: T = to
         self.weight = weight
 
+    def __eq__(self, other):
+        if not isinstance(other, Edge):
+            return False
+        return self.from_ == other.from_ and self.to == other.to and self.weight == other.weight
+
     def __str__(self):
         return f"{self.from_}" + " -" + f"{self.weight}" + "-> " + f"{self.to}"
 
@@ -22,6 +27,7 @@ class Graph(Generic[T], object):
 
     def __init__(self) -> None:
         self.graph: Dict[T, List[Edge[T]]] = dict()
+        self.alphabets = list("abcdefghijklmnopqrstuvwxyz")
         self.V: int = 0
         self.E: int = 0
 
@@ -65,7 +71,8 @@ class Graph(Generic[T], object):
         return m
 
     def __updateInfo(self, u: T, v: T):
-        # self.V = int(max(self.graph.keys()) + 1)
+        if not isinstance(list(self.graph.keys())[0], str):
+            self.V = int(max(self.graph.keys()) + 1)
         self.E = sum([len(adjacent_nodes)
                       for adjacent_nodes in self.graph.values()])
 
