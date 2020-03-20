@@ -1,5 +1,5 @@
-from graph_theory.ds.graph import Graph, Edge
-from typing import Dict, List, Tuple, Any
+from graph_theory.ds.graph import Graph
+from typing import Dict, List, Any
 
 
 class BridgesFindingAlgorithm:
