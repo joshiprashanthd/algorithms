@@ -1,22 +1,23 @@
+from typing import Dict, List, Any
+
 from graph_theory.ds.graph import Graph
-from typing import Dict, List
 
 
 class BFS:
     def __init__(self, graph: Graph):
         self.graph = graph
-        self.visited: Dict[int, bool] = dict(
+        self.visited: Dict[Any, bool] = dict(
             [(key, False) for key in self.graph.nodes()])
-        self.prev: Dict[int, int] = dict(
+        self.prev: Dict[Any, int] = dict(
             [(key, -1) for key in self.graph.nodes()])
-        self.queue: List[int] = []
+        self.queue: List[Any] = []
 
-    def run(self, start_node: int, end_node: int) -> list:
+    def run(self, start_node: Any, end_node: Any) -> List[Any]:
         self.__solve(start_node)
         path = self.__reconstructedPath(start_node, end_node)
         return path
 
-    def __solve(self, start_node: int):
+    def __solve(self, start_node: Any) -> None:
         self.queue.append(start_node)
         self.visited[start_node] = True
 
@@ -31,7 +32,7 @@ class BFS:
                     self.queue.append(edge.to)
                     self.prev[edge.to] = current_node
 
-    def __reconstructedPath(self, start_node: int, end_node: int) -> list:
+    def __reconstructedPath(self, start_node: Any, end_node: Any) -> List[Any]:
         path = []
 
         while end_node != -1:

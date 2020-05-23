@@ -1,14 +1,15 @@
+from typing import List, Dict, Any
+
 from graph_theory.ds.graph import Graph
-from typing import List, Dict
 
 
 class TopologicalSort:
     def __init__(self, graph: Graph) -> None:
         self.graph: Graph = graph
-        self.top_rev_order: List[int] = []
-        self.visited: Dict[int, bool] = dict([(key, False) for key in self.graph.nodes()])
+        self.top_rev_order: List[Any] = []
+        self.visited: Dict[Any, bool] = dict([(key, False) for key in self.graph.nodes()])
 
-    def run(self) -> List[int]:
+    def run(self) -> List[Any]:
         for node in self.graph.nodes():
             if not self.visited[node]:
                 visited_nodes = []
@@ -18,7 +19,7 @@ class TopologicalSort:
         self.top_rev_order.reverse()
         return self.top_rev_order
 
-    def __dfs(self, at: int, visited_nodes: list):
+    def __dfs(self, at: Any, visited_nodes: List[Any]) -> None:
         self.visited[at] = True
 
         edges = self.graph[at]

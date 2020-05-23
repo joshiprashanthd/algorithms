@@ -1,5 +1,6 @@
-from graph_theory.ds.graph import Graph
 from typing import Dict, List, Any
+
+from graph_theory.ds.graph import Graph
 
 
 class BridgesFindingAlgorithm:
@@ -12,7 +13,7 @@ class BridgesFindingAlgorithm:
         self.low_link: Dict[Any, int] = dict([(node, 0) for node in self.graph.nodes()])
 
     def run(self) -> List[Any]:
-        bridges: List[Any] = []
+        bridges = []
         for node in self.graph.nodes():
             if not self.visited[node]:
                 self.__dfs(node, -1, bridges)

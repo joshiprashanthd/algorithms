@@ -4,8 +4,9 @@ to all the other nodes in the graph.
 """
 
 import math
+from typing import Dict, Any
+
 from graph_theory.ds.graph import Graph
-from typing import List, Dict
 from graph_theory.topoogical_sort import TopologicalSort
 
 
@@ -14,9 +15,9 @@ class DAGShortestPath:
         self.graph = graph
         tp_sort = TopologicalSort(self.graph)
         self.top_order = tp_sort.run()
-        self.distance: Dict[str, float] = dict([(key, math.inf) for key in self.graph.nodes()])
+        self.distance: Dict[Any, float] = dict([(key, math.inf) for key in self.graph.nodes()])
 
-    def run(self, start_node) -> Dict[str, float]:
+    def run(self, start_node: Any) -> Dict[Any, float]:
         self.distance[start_node] = 0
 
         for i in range(len(self.top_order)):
