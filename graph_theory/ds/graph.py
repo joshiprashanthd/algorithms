@@ -1,9 +1,8 @@
-from typing import Dict, List, Generic, TypeVar, Union, NoReturn
 import math
+from typing import Dict, List, Generic, TypeVar, Union, NoReturn
 
 T = TypeVar('T', int, str, float)
 Matrix = Union[List[List[Union[int, float]]], NoReturn]
-
 
 class Edge(Generic[T]):
     def __init__(self, from_: T, to: T, weight: float = 0):
@@ -25,20 +24,26 @@ class Graph(Generic[T], object):
     Represents a graph using adjacency list.
     """
 
-    def __init__(self) -> None:
+    def __init__(self, directed=True) -> None:
         self.graph: Dict[T, List[Edge[T]]] = dict()
-        self.alphabets = list("abcdefghijklmnopqrstuvwxyz")
+        self.__degrees: Dict[T, List[int, int]] = dict()
+        self.directed = directed
         self.V: int = 0
         self.E: int = 0
 
-    def add_edge(self, u: T, v: T, w: Union[int, float] = 0, directed: bool = False) -> None:
+    def add_edge(self, u: T, v: T, w: Union[int, float] = 0) -> None:
         self.graph.setdefault(u, [])
         self.graph.setdefault(v, [])
+        self.__degrees.setdefault(u, [0, 0])
+        self.__degrees.setdefault(v, [0, 0])
 
         self.graph[u].append(Edge[T](u, v, w))
-        if not directed:
+        self.__degrees[u][1] += 1
+        self.__degrees[v][0] += 1
+        if not self.directed:
             self.graph[v].append(Edge[T](v, u, w))
-
+            self.__degrees[u][0] += 1
+            self.__degrees[v][1] += 1
         self.__updateInfo(u, v)
 
     def remove_edge(self, u: T, v: T, directed: bool = False) -> None:
@@ -47,12 +52,18 @@ class Graph(Generic[T], object):
                 if edge.to == v:
                     self.graph[u].remove(edge)
                     break
-            if not directed:
+            if not self.directed:
                 for edge in self.graph[v]:
                     if edge.to == u:
                         self.graph[v].remove(edge)
                         break
         self.__updateInfo(u, v)
+
+    def get_indegrees(self, u: T):
+        return self.__degrees[u][0]
+
+    def get_outdegrees(self, u: T):
+        return self.__degrees[u][1]
 
     def nodes(self) -> list:
         return list(self.graph.keys())
