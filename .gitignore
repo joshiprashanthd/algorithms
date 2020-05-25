@@ -1,15 +1,4 @@
+__pycache__
+.idea
 .mypy_cache
 .vscode
-__pycache__
-graph_theory\__pycache__
-graph_theory\ds\__pycache__
-.idea/algorithms.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.vscode/settings.json
-.idea/inspectionProfiles/profiles_settings.xml
-graph_theory/__pycache__
-.gitignore
-.mypy_cache/3.7
-graph_theory/main.py
