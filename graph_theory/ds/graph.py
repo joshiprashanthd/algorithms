@@ -18,6 +18,9 @@ class Edge(Generic[T]):
     def __str__(self):
         return f"{self.from_}" + " -" + f"{self.weight}" + "-> " + f"{self.to}"
 
+    def __repr__(self):
+        return f"{self.from_}" + " -" + f"{self.weight}" + "-> " + f"{self.to}"
+
 
 class Graph(Generic[T], object):
     """
