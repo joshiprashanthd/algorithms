@@ -1,4 +1,4 @@
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 
 from graph_theory.ds.graph import Graph
 
@@ -34,7 +34,7 @@ class EulerianPathFinder:
             if self.out_degrees[node] > 0: start = node
         return start
 
-    def run(self) -> List[Any]:
+    def run(self) -> Optional[List[Any]]:
         self.__count_degrees()
         if self.__verify():
             start_node = self.__find_start_node()
