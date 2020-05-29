@@ -29,6 +29,7 @@ These algorithms are originally from William Fisets Graph Theory Algorithm [Play
 * [Tarjans Algorithm][ta]
 * [Bridges Finding Algorithm][bfa]
 * [Eulerian Path Algorithm][epa]
+* [Prims Algorithm][primalgo]
 
 [bfs]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/bfs.py
 [dfs]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/dfs.py
@@ -43,3 +44,4 @@ These algorithms are originally from William Fisets Graph Theory Algorithm [Play
 [ta]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/tarjans_algo.py
 [bfa]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/bridges_finding_algo.py
 [epa]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/eulerian_path.py
+[primalgo]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/prims_algorithms.py
