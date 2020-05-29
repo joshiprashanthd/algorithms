@@ -10,7 +10,7 @@ class PriorityQueue(Generic[T]):
 
     def __init__(self, maxsize: int = 0, max_queue: bool = False, sort_index: int = 0):
         """
-        Arguments:\n
+        Arguments:
             maxsize: Maximum number of elements, this queue is allowed to store\n
             max_queue: If True, pop() operation will pop the tuple corresponding to the index of element given by [sort_index]\n
             sort_index: Index of element, which is used as key in sorted() function\n
