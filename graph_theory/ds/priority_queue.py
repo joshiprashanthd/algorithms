@@ -8,14 +8,14 @@ T = TypeVar('T')
 
 class PriorityQueue(Generic[T]):
 
-    def __init__(self, maxsize: int = 0, max_queue: bool = False, sort_index: int = 0):
+    def __init__(self, maxsize: int = 0, max_queue: bool = False, sort_index: int = 0, key=None):
         """
         Arguments:
             maxsize: Maximum number of elements, this queue is allowed to store\n
             max_queue: If True, pop() operation will pop the tuple corresponding to the index of element given by [sort_index]\n
             sort_index: Index of element, which is used as key in sorted() function\n
         """
-
+        self.key = key
         self.size = maxsize
         self.max_queue = max_queue
         self.sort_index = sort_index
@@ -40,7 +40,10 @@ class PriorityQueue(Generic[T]):
 
     def pop(self) -> T:
         assert (len(self.pq) > 0), Exception("Queue Underflow")
-        self.pq = sorted(self.pq, key=lambda item: item[self.sort_index], reverse=self.max_queue)
+        if self.key is None:
+            self.pq = sorted(self.pq, key=lambda item: item[self.sort_index], reverse=self.max_queue)
+        else:
+            self.pq = sorted(self.pq, key=self.key, reverse=self.max_queue)
         return self.pq.pop(0)
 
     def is_empty(self) -> bool:
