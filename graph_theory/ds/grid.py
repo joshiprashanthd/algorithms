@@ -6,6 +6,7 @@ T = TypeVar('T')
 class Grid(Generic[T]):
     def __init__(self, rows: int, cols: int, char: T) -> None:
         self.rows = rows
+        self.rows = rows
         self.cols = cols
         self.char = char
         self.grid: List[List[T]]
@@ -22,5 +23,9 @@ class Grid(Generic[T]):
     def get(self, row: int, col: int) -> T:
         return self.grid[row][col]
 
+    def __getitem__(self, item):
+        return self.grid[item]
+
     def __str__(self):
-        return '\n'.join([' '.join([col for col in row]) for row in self.grid])
+        return '\n'.join([' '.join([str(col) for col in row]) for row in self.grid])
+
