@@ -5,7 +5,7 @@ from graph_theory.bridges_finding_algo import BridgesFindingAlgorithm
 
 class TestBridgesFindingAlgorithm(unittest.TestCase):
     def setUp(self):
-        self.g1: Graph = Graph[str]()
+        self.g1: Graph = Graph[str](directed=False)
         self.g1.add_edge('A', 'B')
         self.g1.add_edge('A', 'C')
         self.g1.add_edge('B', 'C')
@@ -17,7 +17,7 @@ class TestBridgesFindingAlgorithm(unittest.TestCase):
         self.g1.add_edge('H', 'I')
         self.g1.add_edge('I', 'F')
 
-        self.g2: Graph = Graph[str]()
+        self.g2: Graph = Graph[str](directed=False)
         self.g2.add_edge('A', 'B')
         self.g2.add_edge('B', 'F')
         self.g2.add_edge('B', 'C')

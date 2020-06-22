@@ -6,7 +6,7 @@ from graph_theory.bfs import BFS
 class TestBFS(unittest.TestCase):
     
     def setUp(self):
-        self.g1 = Graph[int]()
+        self.g1 = Graph[int](directed=False)
         self.g1.add_edge(1, 2)
         self.g1.add_edge(1, 6)
         self.g1.add_edge(2, 4)
@@ -18,7 +18,7 @@ class TestBFS(unittest.TestCase):
         self.g1.add_edge(9, 8)
         self.g1.add_edge(5, 8)
         
-        self.g2 = Graph[str]()
+        self.g2 = Graph[str](directed=False)
         self.g2.add_edge('A', 'B')
         self.g2.add_edge('A', 'C')
         self.g2.add_edge('A', 'F')
