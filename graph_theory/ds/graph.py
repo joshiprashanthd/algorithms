@@ -4,6 +4,7 @@ from typing import Dict, List, Generic, TypeVar, Union, NoReturn
 T = TypeVar('T', int, str, float)
 Matrix = Union[List[List[Union[int, float]]], NoReturn]
 
+
 class Edge(Generic[T]):
     def __init__(self, from_: T, to: T, weight: float = 0):
         self.from_: T = from_
@@ -16,10 +17,10 @@ class Edge(Generic[T]):
         return self.from_ == other.from_ and self.to == other.to and self.weight == other.weight
 
     def __str__(self):
-        return f"{self.from_}" + " -" + f"{self.weight}" + "-> " + f"{self.to}"
+        return f"Edge({self.from_}, {self.to}, {self.weight})"
 
     def __repr__(self):
-        return f"{self.from_}" + " -" + f"{self.weight}" + "-> " + f"{self.to}"
+        return f"Edge({self.from_}, {self.to}, {self.weight})"
 
 
 class Graph(Generic[T], object):
@@ -83,6 +84,16 @@ class Graph(Generic[T], object):
             for edge in self.graph[node]:
                 m[node][edge.to] = edge.weight
         return m
+
+    @staticmethod
+    def from_matrix(matrix: Matrix):
+        graph = Graph[int]()
+        n_vertices = len(matrix)
+        for src in range(n_vertices):
+            for dest in range(n_vertices):
+                if matrix[src][dest] != 0:
+                    graph.add_edge(src, dest, matrix[src][dest])
+        return graph
 
     def __updateInfo(self, u: T, v: T):
         if not isinstance(list(self.graph.keys())[0], str):
