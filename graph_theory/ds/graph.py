@@ -50,16 +50,20 @@ class Graph(Generic[T], object):
             self.__degrees[v][1] += 1
         self.__updateInfo(u, v)
 
-    def remove_edge(self, u: T, v: T, directed: bool = False) -> None:
+    def remove_edge(self, u: T, v: T) -> None:
         if u in self.nodes() and v in self.nodes():
             for edge in self.graph[u]:
                 if edge.to == v:
                     self.graph[u].remove(edge)
+                    self.__degrees[v][0] -= 1
+                    self.__degrees[u][1] -= 1
                     break
             if not self.directed:
                 for edge in self.graph[v]:
                     if edge.to == u:
                         self.graph[v].remove(edge)
+                        self.__degrees[u][0] -= 1
+                        self.__degrees[v][1] -= 1
                         break
         self.__updateInfo(u, v)
 
