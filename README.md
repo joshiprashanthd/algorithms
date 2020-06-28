@@ -14,11 +14,8 @@ These algorithms are originally from William Fisets Graph Theory Algorithm [Play
 ## Graph Theory
 
 * [Breadth First Search][bfs]
-
 * [Depth First Search][dfs]
-
 * [Finding Connected Components][cc]
-
 * [Dungeon Solver][ds]
 * [Topological Sort][ts]
 * [Lazy Dijkstra Algorithm][lda]
@@ -31,6 +28,7 @@ These algorithms are originally from William Fisets Graph Theory Algorithm [Play
 * [Eulerian Path Algorithm][epa]
 * [Prims Algorithm][primalgo]
 * [A* Algorithm][astar]
+* [Kahn's Algorithm][kahns]
 
 [bfs]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/bfs.py
 [dfs]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/dfs.py
@@ -47,3 +45,4 @@ These algorithms are originally from William Fisets Graph Theory Algorithm [Play
 [epa]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/eulerian_path.py
 [primalgo]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/prims_algorithms.py4
 [astar]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/a_star_algorithm.py
+[kahns]: https://github.com/joshiprashanthd/algorithms/blob/master/graph_theory/kahns_algorithm.py
